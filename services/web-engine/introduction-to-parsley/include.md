@@ -40,8 +40,8 @@ One common use of snippets is to create a globally available header and footer. 
 
 Get a full walk-through for how to do this with the **Using Snippets** guide that's linked below.
 
-{% content-ref url="../../../tools/guides/using-snippets.md" %}
-[using-snippets.md](../../../tools/guides/using-snippets.md)
+{% content-ref url="../../../instances/guides/how-tos/using-snippets.md" %}
+[using-snippets.md](../../../instances/guides/how-tos/using-snippets.md)
 {% endcontent-ref %}
 
 ### Working with Remote Files

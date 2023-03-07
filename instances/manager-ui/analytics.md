@@ -14,6 +14,6 @@ GA authentication is optional. It purpose is to simply display some useful infor
 
 ![Analytics section dashboard.](../../.gitbook/assets/analytics.png)
 
-{% content-ref url="../../tools/guides/analytics.md" %}
-[analytics.md](../../tools/guides/analytics.md)
+{% content-ref url="../guides/how-tos/analytics.md" %}
+[analytics.md](../guides/how-tos/analytics.md)
 {% endcontent-ref %}

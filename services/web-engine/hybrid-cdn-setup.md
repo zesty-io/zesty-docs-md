@@ -8,10 +8,10 @@ This guide will cover setting up your content instance domain, your CDN to route
 
 ## 1.) Setting Up Your Domain
 
-Follow the link below to setup your [Content Instance's domain](../../tools/guides/how-to-launch-an-instance.md#1-set-a-custom-domain-name).
+Follow the link below to setup your [Content Instance's domain](../../instances/guides/how-tos/how-to-launch-an-instance.md#1-set-a-custom-domain-name).
 
-{% content-ref url="../../tools/guides/how-to-launch-an-instance.md" %}
-[how-to-launch-an-instance.md](../../tools/guides/how-to-launch-an-instance.md)
+{% content-ref url="../../instances/guides/how-tos/how-to-launch-an-instance.md" %}
+[how-to-launch-an-instance.md](../../instances/guides/how-tos/how-to-launch-an-instance.md)
 {% endcontent-ref %}
 
 ## 2.) Accessing Your WebEngine Origin
