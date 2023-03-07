@@ -22,9 +22,9 @@ Once a user in your organization connects to Zesty.io with Microsoft SSO users m
 
 **Permissions are not synchronized** with Microsoft Active Directory. Single Sign-On login is only available once your organization's Microsoft Active Directory admin has allowed the [Zesty.io](http://zesty.io/) application.
 
-You can streamline permission access by using Teams in Zesty.io, which enables you to add a single team to an instance under specific roles and permissions. Adding and removing a user from a Team is the best way to cascade access. Learn more about [Teams](../../services/accounts-ui/teams.md).
+You can streamline permission access by using Teams in Zesty.io, which enables you to add a single team to an instance under specific roles and permissions. Adding and removing a user from a Team is the best way to cascade access. Learn more about [Teams](../../accounts/ui/teams.md).
 
-{% content-ref url="../../services/accounts-ui/teams.md" %}
-[teams.md](../../services/accounts-ui/teams.md)
+{% content-ref url="../../accounts/ui/teams.md" %}
+[teams.md](../../accounts/ui/teams.md)
 {% endcontent-ref %}
 
