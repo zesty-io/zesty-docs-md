@@ -53,7 +53,7 @@ module.exports = {
 
 ### Working with Zesty View Components
 
-The Zesty.io configuration for next.js will look for a component name after the content model in `views/zesty` directory in your next.js project. A content model named `articles` will look for a component `views/zesty/Article.js` Note the slight name change, as the naming convention is a `PascalCase` without pluralization, therefore `articles` becomes `Article`. We call this the alternate name, you can find the automated alternate name by look at the [`?toJSON`](../../webengine/guides/json-endpoints/headless-and-hybrid-tojson.md#content-output) response of any content item through WebEngine.
+The Zesty.io configuration for next.js will look for a component name after the content model in `views/zesty` directory in your next.js project. A content model named `articles` will look for a component `views/zesty/Article.js` Note the slight name change, as the naming convention is a `PascalCase` without pluralization, therefore `articles` becomes `Article`. We call this the alternate name, you can find the automated alternate name by look at the [`?toJSON`](../../apis/json-endpoints/headless-and-hybrid-tojson.md#content-output) response of any content item through WebEngine.
 
 {% hint style="info" %}
 Content models that start with a number will need N prepended to the name, e.g. `3slides` will be named `N3slides.js.` The sync script will automatically do this..
