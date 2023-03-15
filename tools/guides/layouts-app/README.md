@@ -1,3 +1,9 @@
+---
+description: >-
+  The Layouts App allows you to drag and drop components and work with Zesty
+  content in a codeless environment.
+---
+
 # Layouts App
 
 This documentation is an overview of Zesty’s new Layouts app which covers the installation, usage, and creation of custom components.
