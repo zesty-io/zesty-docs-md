@@ -1,0 +1,2558 @@
+{
+	"info": {
+		"_postman_id": "9d13ae45-a1f3-bca7-ab4b-a982637b014c",
+		"name": "Media API",
+		"description": "The Media Service is a collection of four services `manager`, `storage`, `resolver`and `modify`.\n\nMedia File ZUID example: `3-19c69dd-07a7a`\n\n## Media Manager Service\n\nIts job is to communicate with the database. The majority of endpoint we used commonly are in this service. This service orchestrates all the media services.\n\n[https://media-manager.api.zesty.io](https://media-manager.api.zesty.io)\n\n## Media Storage Service\n\nIts job is to communicate with the storage provider.\n\n[https://media-storage.api.zesty.io](https://media-storage.api.zesty.io)\n\n## Media Modify Service\n\nIts job is to manipulate images, get commands from manager, and make requests to storage.\n\n[https://media-modify.api.zesty.io](https://media-modify.api.zesty.io)\n\n## Media Resolver Service\n\nIts job it to get a media file ZUID and return the associated CDN path. This service is consumed everywhere we load media. It is the most heavily trafficked service of the 4.\n\n[https://media-resolver.api.zesty.io](https://media-resolver.api.zesty.io)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manager",
+			"item": [
+				{
+					"name": "Bin",
+					"item": [
+						{
+							"name": "Create Bin",
+							"id": "5d7d6d36-cd36-be53-743f-f83dc487bf07",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "cdn_prefix",
+											"description": "[string] Optional. CDN Prefix",
+											"type": "text",
+											"value": ""
+										},
+										{
+											"key": "eco_id",
+											"value": "",
+											"description": "[id] Required if site_id is NOT in post body. Ecosystem ID",
+											"type": "text"
+										},
+										{
+											"key": "site_id",
+											"value": "",
+											"description": "[id] Required if site_id is NOT in post body. Instance ID",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "",
+											"description": "[string] Required. Name of Bin",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{protocol}}://{{media_manager_url}}/bin",
+								"description": "Create a bin based on the default storage driver and default cdn in the associated ecosystem or instance.\n\n**Body**: form-data\n\n| **name** | **description** |\n| --- | --- |\n| cdn_prefix | \\[string\\] **Optional.** Unique. Used to specify the prefix of the CDN base URL |\n| eco_id | \\[id\\] **Required** if site_id is NOT in post body. Bin created will be associated to the Ecosystem ID |\n| site_id | \\[id\\] **Required** if eco_id is NOT in post body. Bin created will be associated to the Instance ID |\n| name | \\[string\\] **Required.** Name of bin that will be created |"
+							},
+							"response": [
+								{
+									"id": "921f2189-30c9-4bab-8846-24ade71df697",
+									"name": "Create Bin in an Ecosystem",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "cdn_prefix",
+													"description": "[string] Optional. CDN Prefix",
+													"type": "text",
+													"value": ""
+												},
+												{
+													"key": "eco_id",
+													"value": "1",
+													"description": "[id] Required if site_id is NOT in post body. Ecosystem ID",
+													"type": "text"
+												},
+												{
+													"key": "site_id",
+													"value": "",
+													"description": "[id] Required if site_id is NOT in post body. Instance ID",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "Bin in an Ecosystem",
+													"description": "[string] Required. Name of Bin",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/bin"
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 13 Mar 2023 04:17:26 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "80"
+										},
+										{
+											"key": "Access-Control-Allow-Credentials",
+											"value": "true"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"50-D9HGdI9liB7/RhF8GW+pag\""
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Via",
+											"value": "1.1 google"
+										}
+									],
+									"cookie": [],
+									"responseTime": null,
+									"body": "{\n    \"message\": \"Requires one of: site id, eco id\",\n    \"status\": \"Bad Request\",\n    \"code\": 400\n}"
+								},
+								{
+									"id": "8d9decc0-1d9a-43f8-9a7c-d43a116b1423",
+									"name": "Create Bin in an Instance",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "cdn_prefix",
+													"description": "[string] Optional. CDN Prefix",
+													"type": "text",
+													"value": ""
+												},
+												{
+													"key": "eco_id",
+													"value": "",
+													"description": "[id] Required if site_id is NOT in post body. Ecosystem ID",
+													"type": "text"
+												},
+												{
+													"key": "site_id",
+													"value": "8354385",
+													"description": "[id] Required if site_id is NOT in post body. Instance ID",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "Bin in an Instance",
+													"description": "[string] Required. Name of Bin",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/bin"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								},
+								{
+									"id": "51be7318-7491-4dc3-90e4-cd377a53f446",
+									"name": "Create Bin with CDN Prefix",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "cdn_prefix",
+													"description": "[string] Optional. CDN Prefix",
+													"type": "text",
+													"value": "5mfdt7"
+												},
+												{
+													"key": "eco_id",
+													"value": "",
+													"description": "[id] Required if site_id is NOT in post body. Ecosystem ID",
+													"type": "text"
+												},
+												{
+													"key": "site_id",
+													"value": "8354385",
+													"description": "[id] Required if site_id is NOT in post body. Instance ID",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "Bin with CDN prefix",
+													"description": "[string] Required. Name of Bin",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/bin"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Get Bin",
+							"id": "b75a7a1d-bd49-6912-9458-4877ef72943a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/bin/:bin_id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"bin",
+										":bin_id"
+									],
+									"variable": [
+										{
+											"key": "bin_id",
+											"value": null,
+											"description": "[id] Required. Bin ID"
+										}
+									]
+								},
+								"description": "Fetch a bin by Bin ID (in ZUID format)."
+							},
+							"response": []
+						},
+						{
+							"name": "Get Eco Bins",
+							"id": "42bc563e-be9d-4b75-9220-56a4889db15a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/eco/:eco_id/bins",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"eco",
+										":eco_id",
+										"bins"
+									],
+									"variable": [
+										{
+											"key": "eco_id",
+											"value": "",
+											"description": "[id] Required. Ecosystem ID"
+										}
+									]
+								},
+								"description": "Fetch bins associated with an Ecosystem ID"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Site Bins",
+							"id": "5709d3a3-3dc5-53dc-ba7e-9140fb68ebc2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/site/:instance_id/bins",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"site",
+										":instance_id",
+										"bins"
+									],
+									"variable": [
+										{
+											"key": "instance_id",
+											"value": "",
+											"description": "[id] Required. Instance ID"
+										}
+									]
+								},
+								"description": "Fetch bins associated with an Instance ID (unique from an Instance ZUID)"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Bin Files",
+							"id": "337b8d94-5605-09fb-578a-8449a35a709d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/bin/:bin_id/files",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"bin",
+										":bin_id",
+										"files"
+									],
+									"variable": [
+										{
+											"key": "bin_id",
+											"value": "",
+											"description": "[id] Required. Bin ID"
+										}
+									]
+								},
+								"description": "Fetch Files associated with a Bin ID"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Bin Groups",
+							"id": "e9bc7028-d063-b48b-fa44-a50daaf4a70e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/bin/:bin_id/groups",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"bin",
+										":bin_id",
+										"groups"
+									],
+									"variable": [
+										{
+											"key": "bin_id",
+											"value": "",
+											"description": "[id] Required. Bin ID"
+										}
+									]
+								},
+								"description": "Fetch Groups associated with a Bin ID"
+							},
+							"response": []
+						},
+						{
+							"name": "Update Bin",
+							"id": "7bd68b78-8532-e4cb-a59b-efa24d84ce72",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "",
+											"description": "[string] Required. Name of Bin",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/bin/:bin_id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"bin",
+										":bin_id"
+									],
+									"variable": [
+										{
+											"key": "bin_id",
+											"value": null,
+											"description": "[id] Required. Bin ID"
+										}
+									]
+								},
+								"description": "Update name of bin\n\n**Body**: form-data\n\n| **name** | **description** |\n| --- | --- |\n| name | \\[string\\] **Required**. New name of bin |"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Bin",
+							"id": "449b3da4-69b4-f853-f9d0-31a620859cf6",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/bin/:bin_id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"bin",
+										":bin_id"
+									],
+									"variable": [
+										{
+											"key": "bin_id",
+											"value": "",
+											"description": "[id] Required. Bin ID"
+										}
+									]
+								},
+								"description": "Delete a bin"
+							},
+							"response": []
+						}
+					],
+					"id": "f6023a91-531a-87cb-c267-64a18d375dc8",
+					"description": "Bin is a storage for files and groups used to organize an instance or an ecosystem's media files.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "ab02bd93-050a-43f5-a63c-988729a696e4",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "bb2e610b-81f8-4192-823f-197097effaa0",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Group",
+					"item": [
+						{
+							"name": "Create Group",
+							"id": "e2600abe-a4b3-3dc4-5fe1-f48d7559a559",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "bin_id",
+											"value": "",
+											"description": "[id] Required. Bin ID",
+											"type": "text"
+										},
+										{
+											"key": "group_id",
+											"value": "",
+											"description": "[id] Optional. Group ID",
+											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "",
+											"description": "[string] Optional. Name of Group",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{protocol}}://{{media_manager_url}}/group",
+								"description": "Create a group, nested under another group or at the top level (bin level).\n\n**Body:** form-data\n\n| **name** | **description** |\n| --- | --- |\n| bin_id | \\[id\\] **Required**. Bin ID where the Group will be associated with |\n| group_id | \\[id\\] **Optional**. The group that will be created will have this group_id as its parent, otherwise parent will be bin_id |\n| name | \\[string\\] **Optional**. If no value, the folder is named 'new folder' by default |"
+							},
+							"response": [
+								{
+									"id": "df068fad-c7e7-4922-82ab-231a03d6f90c",
+									"name": "Create Group in a Bin",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "bin_id",
+													"value": "1-34b0d20-f0yr4",
+													"description": "[id] Required. Bin ID",
+													"type": "text"
+												},
+												{
+													"key": "group_id",
+													"value": "",
+													"description": "[id] Optional. Group ID",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "",
+													"description": "[string] Optional. Name of Group",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/group"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								},
+								{
+									"id": "efd033f5-5fb3-495d-a2aa-85ab69b9e62d",
+									"name": "Create Group within a Group",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "bin_id",
+													"value": "1-34b16f8-3ovdy",
+													"description": "[id] Required. Bin ID",
+													"type": "text"
+												},
+												{
+													"key": "group_id",
+													"value": "2-3cb5a32-pwoby",
+													"description": "[id] Optional. Group ID",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "",
+													"description": "[string] Optional. Name of Group",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/group"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								},
+								{
+									"id": "ef596cbe-89cd-4672-9d9c-c0697987c3c7",
+									"name": "Create Group with Name",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "bin_id",
+													"value": "1-34b0d20-f0yr4",
+													"description": "[id] Required. Bin ID",
+													"type": "text"
+												},
+												{
+													"key": "group_id",
+													"value": "",
+													"description": "[id] Optional. Group ID",
+													"type": "text"
+												},
+												{
+													"key": "name",
+													"value": "My Bucket",
+													"description": "[string] Optional. Name of Group",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/group"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Get Group",
+							"id": "c2668203-f55d-4f0a-a01e-10fd7191e70f",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/group/:group_id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"group",
+										":group_id"
+									],
+									"variable": [
+										{
+											"key": "group_id",
+											"value": "",
+											"description": "[id] Required. Group ID"
+										}
+									]
+								},
+								"description": "Fetch a group by Group ID (in ZUID format)."
+							},
+							"response": []
+						},
+						{
+							"name": "Update Group",
+							"id": "2dd8892b-3101-af64-49c2-34f3979c39d0",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "",
+											"description": "new name of the folder",
+											"type": "text"
+										},
+										{
+											"key": "group_id",
+											"value": "",
+											"description": "group_id of the parent group",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/group/:group_id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"group",
+										":group_id"
+									],
+									"variable": [
+										{
+											"key": "group_id",
+											"value": "",
+											"description": "[id] Required. Group ID"
+										}
+									]
+								},
+								"description": "Update group name and parent group.\n\n**Body:** form-data\n\n| **name** | **description** |\n| --- | --- |\n| name | \\[string\\] **Required**. New name of the group |\n| group_id | \\[id\\] **Required**. The group_id of the parent group. This can be the current group_id value of the group record |"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Group",
+							"id": "a25f2562-1c3d-9600-3301-21a6666ca526",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/group/:group_id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"group",
+										":group_id"
+									],
+									"variable": [
+										{
+											"key": "group_id",
+											"value": "",
+											"description": "[id] Required. Group ID"
+										}
+									]
+								},
+								"description": "Delete a group"
+							},
+							"response": []
+						}
+					],
+					"id": "f8ca9f18-b49f-14af-7b59-2cf09a8224cf",
+					"description": "Groups are virtual tags that group together files. This is used to organize the frontend to create a file system experience.",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "22193a3f-4b57-43d7-8afa-ee49e6cb5f40",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "bee1e474-ec44-4c02-994f-c682156a07ce",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "File",
+					"item": [
+						{
+							"name": "Create File",
+							"id": "101761f2-2950-25ff-4211-957ca5d918b0",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "bin_id",
+											"value": "",
+											"description": "[id] Required. Bin ID",
+											"type": "text"
+										},
+										{
+											"key": "group_id",
+											"value": "",
+											"description": "[id] Optional. Group ID",
+											"type": "text"
+										},
+										{
+											"key": "filename",
+											"value": "",
+											"description": "[string] Required. Filename",
+											"type": "text"
+										},
+										{
+											"key": "createdBy",
+											"value": "",
+											"description": "[string] Optional. Legacy User",
+											"type": "text"
+										},
+										{
+											"key": "cdnUrl",
+											"value": "",
+											"description": "[string] Optional. CDN URL",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "",
+											"description": "[string] Optional. Title/label of the file",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{protocol}}://{{media_manager_url}}/file",
+								"description": "Create a file\n\n**Body**: form-data\n\n| **name** | **description** |\n| --- | --- |\n| bin_id | \\[id\\] Required. Bin ID |\n| group_id | \\[id\\] Optional. Group ID |\n| filename | \\[string\\] Required. Filename |\n| createdBy | \\[string\\] Optional. Legacy User ZUID (optional) legacy id of the user. |\n| cdnUrl | \\[string\\] Optional. CDN URL. If not passed, the CDN base URL of the bin will be used. |\n| title | \\[string\\] Optional. Title/label of the file |"
+							},
+							"response": [
+								{
+									"id": "e3088df8-38ec-4563-b624-1bd89399a5ec",
+									"name": "Create File in a Bin",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "bin_id",
+													"value": "1-f6a090d-6fxfs2",
+													"description": "[id] Required. Bin ID",
+													"type": "text"
+												},
+												{
+													"key": "group_id",
+													"value": "",
+													"description": "[id] Optional. Group ID",
+													"type": "text"
+												},
+												{
+													"key": "filename",
+													"value": "filenametest.json",
+													"description": "[string] Required. Filename",
+													"type": "text"
+												},
+												{
+													"key": "createdBy",
+													"value": "",
+													"description": "[string] Optional. Legacy User",
+													"type": "text"
+												},
+												{
+													"key": "cdnUrl",
+													"value": "",
+													"description": "[string] Optional. CDN URL",
+													"type": "text"
+												},
+												{
+													"key": "title",
+													"value": "",
+													"description": "[string] Optional. Title/label of the file",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/file"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								},
+								{
+									"id": "4bb10afc-a889-43a9-a438-e7d1d7c4f31a",
+									"name": "Create File in a Group",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "bin_id",
+													"value": "1-f6a090d-6fxfs2",
+													"description": "[id] Required. Bin ID",
+													"type": "text"
+												},
+												{
+													"key": "group_id",
+													"value": "1-34b0d20-f0yr4",
+													"description": "[id] Optional. Group ID",
+													"type": "text"
+												},
+												{
+													"key": "filename",
+													"value": "filenametest2.json",
+													"description": "[string] Required. Filename",
+													"type": "text"
+												},
+												{
+													"key": "createdBy",
+													"value": "",
+													"description": "[string] Optional. Legacy User",
+													"type": "text"
+												},
+												{
+													"key": "cdnUrl",
+													"value": "",
+													"description": "[string] Optional. CDN URL",
+													"type": "text"
+												},
+												{
+													"key": "title",
+													"value": "",
+													"description": "[string] Optional. Title/label of the file",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/file"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								},
+								{
+									"id": "1581d9d8-b70f-4d56-9b8b-e08db6db83b0",
+									"name": "Create File with createdBy",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "bin_id",
+													"value": "1-f6a090d-6fxfs2",
+													"description": "[id] Required. Bin ID",
+													"type": "text"
+												},
+												{
+													"key": "group_id",
+													"value": "",
+													"description": "[id] Optional. Group ID",
+													"type": "text"
+												},
+												{
+													"key": "filename",
+													"value": "filenametest3.json",
+													"description": "[string] Required. Filename",
+													"type": "text"
+												},
+												{
+													"key": "createdBy",
+													"value": "Matthew",
+													"description": "[string] Optional. Legacy User",
+													"type": "text"
+												},
+												{
+													"key": "cdnUrl",
+													"value": "",
+													"description": "[string] Optional. CDN URL",
+													"type": "text"
+												},
+												{
+													"key": "title",
+													"value": "",
+													"description": "[string] Optional. Title/label of the file",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/file"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								},
+								{
+									"id": "9aa2911d-38a5-4f63-bd06-9bd6f0ef7eee",
+									"name": "Create File with CDN URL",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "bin_id",
+													"value": "1-f6a090d-6fxfs2",
+													"description": "[id] Required. Bin ID",
+													"type": "text"
+												},
+												{
+													"key": "group_id",
+													"value": "",
+													"description": "[id] Optional. Group ID",
+													"type": "text"
+												},
+												{
+													"key": "filename",
+													"value": "filenametest4.json",
+													"description": "[string] Required. Filename",
+													"type": "text"
+												},
+												{
+													"key": "createdBy",
+													"value": "",
+													"description": "[string] Optional. Legacy User",
+													"type": "text"
+												},
+												{
+													"key": "cdnUrl",
+													"value": "https://testcdn.media.zestyio.com",
+													"description": "[string] Optional. CDN URL",
+													"type": "text"
+												},
+												{
+													"key": "title",
+													"value": "",
+													"description": "[string] Optional. Title/label of the file",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/file"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								},
+								{
+									"id": "de4d6db4-8846-409b-8830-717f618cbb57",
+									"name": "Create File with Title",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "bin_id",
+													"value": "1-f6a090d-6fxfs2",
+													"description": "[id] Required. Bin ID",
+													"type": "text"
+												},
+												{
+													"key": "group_id",
+													"value": "",
+													"description": "[id] Optional. Group ID",
+													"type": "text"
+												},
+												{
+													"key": "filename",
+													"value": "filenametest5.json",
+													"description": "[string] Required. Filename",
+													"type": "text"
+												},
+												{
+													"key": "createdBy",
+													"value": "",
+													"description": "[string] Optional. Legacy User",
+													"type": "text"
+												},
+												{
+													"key": "cdnUrl",
+													"value": "",
+													"description": "[string] Optional. CDN URL",
+													"type": "text"
+												},
+												{
+													"key": "title",
+													"value": "Test Title",
+													"description": "[string] Optional. Title/label of the file",
+													"type": "text"
+												}
+											]
+										},
+										"url": "{{protocol}}://{{media_manager_url}}/file"
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"responseTime": null,
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Get File",
+							"id": "f400371f-8e10-14a2-4bec-11e40427e9e6",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/file/:file_id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"file",
+										":file_id"
+									],
+									"variable": [
+										{
+											"key": "file_id",
+											"value": "",
+											"description": "[id] Required. File ID"
+										}
+									]
+								},
+								"description": "Fetch a file by File ID (in ZUID format)."
+							},
+							"response": []
+						},
+						{
+							"name": "Update File",
+							"id": "3f4912ac-9559-35e2-d467-904d13960966",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "filename",
+											"value": "",
+											"description": "[string] Optional. Filename",
+											"type": "text"
+										},
+										{
+											"key": "group_id",
+											"value": "",
+											"description": "[string] Optional. Group ID",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "",
+											"description": "[string] Optional. Title",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/file/:file_id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"file",
+										":file_id"
+									],
+									"variable": [
+										{
+											"key": "file_id",
+											"value": "3-f6a3a42-286j85",
+											"description": "[id] Required. File ID"
+										}
+									]
+								},
+								"description": "Update file name and and optionally update parent group or title\n\n**Body**: form-data\n\n| **name** | **description** |\n| --- | --- |\n| filename | \\[string\\] Optional. New Filename |\n| group_id | \\[string\\] Optional. New Parent Group |\n| title | \\[string\\] Optional. New Title |"
+							},
+							"response": []
+						},
+						{
+							"name": "Delete File",
+							"id": "d15396c1-6083-e2c3-60f8-5335f5cca14b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/file/:file_id",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"file",
+										":file_id"
+									],
+									"variable": [
+										{
+											"key": "file_id",
+											"value": "",
+											"description": "[id] Required. File ID"
+										}
+									]
+								},
+								"description": "Delete a File"
+							},
+							"response": []
+						}
+					],
+					"id": "0f67d7d5-e29f-26fe-2888-bccc89f18dea",
+					"description": "Files are media items that can be stored in a group or in a bin."
+				},
+				{
+					"name": "File Modification",
+					"item": [
+						{
+							"name": "Get Modified File",
+							"id": "2e48aa2b-cc89-f56f-e867-659e27f1384c",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{protocol}}://{{media_manager_url}}/file/:file_id/modified/:actionHash",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{media_manager_url}}"
+									],
+									"path": [
+										"file",
+										":file_id",
+										"modified",
+										":actionHash"
+									],
+									"variable": [
+										{
+											"key": "file_id",
+											"value": "",
+											"description": "[id] Required. File ID"
+										},
+										{
+											"key": "actionHash",
+											"value": "",
+											"description": "[id] Required. Action Hash"
+										}
+									]
+								},
+								"description": "Fetch a Modified File using the File ID and Action Hash (unique identifier associated with a file modification action)"
+							},
+							"response": []
+						},
+						{
+							"name": "Create Modified File",
+							"id": "70518576-7acd-be35-53cf-ef2a066ab031",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file_id",
+											"value": "",
+											"description": "[id] Required. File ID",
+											"type": "text"
+										},
+										{
+											"key": "filename",
+											"value": "",
+											"description": "[string] Required. Filename",
+											"type": "text"
+										},
+										{
+											"key": "bin_id",
+											"value": "",
+											"description": "[id] Required. Bin ID",
+											"type": "text"
+										},
+										{
+											"key": "cdnUrl",
+											"value": "",
+											"description": "[string] Required if storageUrl is NOT in post body. CDN URL",
+											"type": "text"
+										},
+										{
+											"key": "storageUrl",
+											"value": "",
+											"description": "[string] Required if cdnUrl is NOT in post body. Storage URL",
+											"type": "text"
+										},
+										{
+											"key": "actions_hash",
+											"value": "",
+											"description": "hash of actions to be send to modify service",
+											"type": "text"
+										},
+										{
+											"key": "created_by",
+											"value": "",
+											"description": "[string] Optional. Legacy User",
+											"type": "text"
+										}
+									]
+								},
+								"url": "{{protocol}}://{{media_manager_url}}/file/modified",
+								"description": "Created a Modified File.\n\n**Body**: form-data\n\n| **name** | **description** |\n| --- | --- |\n| file_id | \\[id\\] Required. File ID |\n| filename | \\[string\\] Required. Filename |\n| bin_id | \\[id\\] Required. Bin ID |\n| cdnUrl | \\[string\\] Required if storageUrl is NOT in post body. CDN URL |\n| storageUrl | \\[string\\] Required if cdnUrl is NOT in post body. Storage URL |\n| actions_hash | \\[string\\] Optional. Hash of actions to be sent to modify service. |\n| created_by | \\[string\\] Optional. Legacy User |"
+							},
+							"response": []
+						}
+					],
+					"id": "fb499549-9f20-11a9-8752-7440b9db9719"
+				}
+			],
+			"id": "358da090-1875-cf66-1424-cb8e4e69462b",
+			"description": "## Media Manager Service\n\nIts job is to communicate with the database. The majority of endpoint we used commonly are in this service. This service orchestrates all the media services.\n\n[https://media-manager.api.zesty.io](https://media-manager.api.zesty.io/)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "faaf533f-0331-4606-ada8-813ce4a00ccd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "17efff70-da3e-4966-a029-f20bcbdbf0c5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Storage",
+			"item": [
+				{
+					"name": "Bucket Creation",
+					"id": "e394c3af-1fdc-5f70-7501-4ffded16dd9b",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "storage_driver",
+									"value": "",
+									"description": "[string] Required. Storage Provider. gcp or rackspace",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{protocol}}://{{media_storage_url}}/bucket",
+						"description": "Create a bucket\n\n**Body:** form-data\n\n| **name** | **description** |\n| --- | --- |\n| storage_driver | \\[string\\] **Required**. Storage Provider. `gcp` or `rackspace` |"
+					},
+					"response": []
+				},
+				{
+					"name": "File Creation",
+					"id": "ad7e82e3-e314-6b4e-3fbf-5c48ff5a2181",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "storage_driver",
+									"value": "",
+									"description": "[string] Optional. Storage Provider. gcp or rackspace",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{protocol}}://{{media_storage_url}}/upload/:provider/:bucket_name",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{media_storage_url}}"
+							],
+							"path": [
+								"upload",
+								":provider",
+								":bucket_name"
+							],
+							"variable": [
+								{
+									"key": "provider",
+									"value": "",
+									"description": "[string] Required. Storage Provider (gcp or rackspace)"
+								},
+								{
+									"key": "bucket_name",
+									"value": null,
+									"description": "[string] Required. Name of bucket"
+								}
+							]
+						},
+						"description": "Create a file.\n\nIn the URI:  \n`bucketName` is accessed by media manager service /sites/site_id/bins  \n`provider` is the driver name (gcp or rackspace)\n\n| **name** | **description** |\n| --- | --- |\n| storage_driver | \\[string\\] **Optional**. Storage Provider. `gcp` or `rackspace` |"
+					},
+					"response": []
+				},
+				{
+					"name": "File Copy (operation)",
+					"id": "860a0a99-50ae-5e53-bce1-4a124f0b0d40",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "storageProvider",
+									"value": "",
+									"description": "[string] Required. Storage Provider. gcp or rackspace",
+									"type": "text"
+								},
+								{
+									"key": "bucketName",
+									"value": "",
+									"description": "[string] Required. Bucket Name",
+									"type": "text"
+								},
+								{
+									"key": "filenamesUrls",
+									"value": "",
+									"description": "[object] Required. Filename and Source URL in this format: {id: [filename, sourceUrl]}",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{protocol}}://{{media_storage_url}}/file/copy",
+						"description": "Copy a file from a remote URL into the storage bucket.  \nThis is admittedly not as simple as it should be because I've added in allowing some copies to fail while others succeed as part of the same request.\n\n**Body**: form-data\n\n| **name** | **description** |\n| --- | --- |\n| storageProvider | \\[string\\] **Required**. Storage Provider. `gcp` or `rackspace` |\n| bucketName | \\[string\\] **Required**. Name of storage bucket pulled off the media manager /bins endpoint |\n| filenamesUrls | \\[object\\] Required. Filename and Source URL in this format: `{id: [filename, sourceUrl]}` |\n\n## Example Response Body\n\n`{ id: { name : 'test-2.png', originalName: 'test 2.png', storageUrl: 'https://storage.googleapis.com/bucketname/test-2.png', sizeBytes, mimetype }, id: { originalName: 'file2.svg', sourceResponseCode: 404 error: 'failure reading source url: http://doesnotexist.com/blah' } }`"
+					},
+					"response": []
+				},
+				{
+					"name": "Health Endpoint",
+					"id": "41c8daf8-5195-f1a0-aef0-e27c9681ed6f",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "{{protocol}}://{{media_storage_url}}/",
+						"description": "Check Health of Media Storage Service"
+					},
+					"response": []
+				},
+				{
+					"name": "File Update",
+					"id": "74fc65f1-6963-90c9-190b-c3f6eb6856f4",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "storage_driver",
+									"value": "",
+									"description": "[string] Required. Storage Provider. gcp or rackspace",
+									"type": "text"
+								},
+								{
+									"key": "storage_name",
+									"value": "",
+									"description": "[string] Required. Name of Storage Bucket (from media bins)",
+									"type": "text"
+								},
+								{
+									"key": "prev_name",
+									"value": "",
+									"description": "[string] Required. Previous name of file",
+									"type": "text"
+								},
+								{
+									"key": "next_name",
+									"value": "",
+									"description": "[string] Required. New name of file",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{protocol}}://{{media_storage_url}}/file",
+						"description": "Update name of file.\n\n**Body**: form-data\n\n| **name** | **description** |\n| --- | --- |\n| storage_driver | \\[string\\] **Required**. Storage Provider. `gcp` or `rackspace` |\n| storage_name | \\[string\\] **Required**. Name of Storage Bucket (from media bins) |\n| prev_name | \\[string\\] **Required**. Previous name of file |\n| next_name | \\[string\\] **Required**. New name of file |"
+					},
+					"response": []
+				},
+				{
+					"name": "Bucket Deletion",
+					"id": "25c328e4-8f5d-d056-e003-c456da0ccda6",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "storage_driver",
+									"value": "",
+									"description": "[string] Required. Storage Provider. gcp or rackspace",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{protocol}}://{{media_storage_url}}/bucket/:bucket_name",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{media_storage_url}}"
+							],
+							"path": [
+								"bucket",
+								":bucket_name"
+							],
+							"variable": [
+								{
+									"key": "bucket_name",
+									"value": null,
+									"description": "[string] Required. Name of bucket"
+								}
+							]
+						},
+						"description": "Delete a bucket and all of the files it contains.\n\n**Body**: form-data\n\n| **name** | **description** |\n| --- | --- |\n| storage_driver | \\[string\\] **Required**. Storage Provider. `gcp` or `rackspace` |"
+					},
+					"response": []
+				},
+				{
+					"name": "File Delete",
+					"id": "760baf8c-6ed5-58dd-daf0-4e06b6a19700",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "storage_driver",
+									"value": "",
+									"description": "[string] Required. Storage Provider. gcp or rackspace",
+									"type": "text"
+								},
+								{
+									"key": "storage_name",
+									"value": "",
+									"description": "[string] Required. Name of Storage Bucket (from media bins)",
+									"type": "text"
+								},
+								{
+									"key": "filename",
+									"value": "",
+									"type": "text",
+									"description": "[string] Required. Name of file"
+								}
+							]
+						},
+						"url": "{{protocol}}://{{media_storage_url}}/file",
+						"description": "Delete a file\n\n**Body:** form-data\n\n| **name** | **description** |\n| --- | --- |\n| storage_driver | \\[string\\] **Required**. Storage Provider. `gcp` or `rackspace` |\n| storage_name | \\[string\\] **Required**. Name of Storage Bucket (from media bins) |\n| filename | \\[string\\] **Required**. Name of file to be deleted |"
+					},
+					"response": []
+				},
+				{
+					"name": "Batch Files Delete",
+					"id": "34f7cce0-e105-d363-bde9-18486d40195d",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "storage_driver",
+									"value": "",
+									"description": "[string] Required. Storage Provider. gcp or rackspace",
+									"type": "text"
+								},
+								{
+									"key": "storage_name",
+									"value": "",
+									"description": "[string] Required. Name of Storage Bucket (from media bins)",
+									"type": "text"
+								},
+								{
+									"key": "filenames",
+									"value": "",
+									"description": "[string] Required. Name of files to be deleted, comma-separated",
+									"type": "text"
+								}
+							]
+						},
+						"url": "{{protocol}}://{{media_storage_url}}/files",
+						"description": "Deletes multiple files at once\n\n**Body:** form-data\n\n| **name** | **description** |\n| --- | --- |\n| storage_driver | \\[string\\] **Required**. Storage Provider. `gcp` or `rackspace` |\n| storage_name | \\[string\\] **Required**. Name of Storage Bucket (from media bins) |\n| filenames | \\[string\\] **Required**. Name of files to be deleted, comma-separated |"
+					},
+					"response": []
+				}
+			],
+			"id": "583ca7c5-0362-3f0c-20e6-be86c30ec31a",
+			"description": "## Media Storage Service\n\nIts job is to communicate with the storage provider.\n\n[https://media-storage.api.zesty.io](https://media-storage.api.zesty.io/)"
+		},
+		{
+			"name": "Modify",
+			"item": [
+				{
+					"name": "Crop 200x200 top left",
+					"id": "822501cb-2dd6-7728-c29c-236c4d5a3543",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[crop][width]=200&actions[crop][height]=200&actions[crop][x]=30&actions[crop][y]=40",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[crop][width]",
+									"value": "200"
+								},
+								{
+									"key": "actions[crop][height]",
+									"value": "200"
+								},
+								{
+									"key": "actions[crop][x]",
+									"value": "30"
+								},
+								{
+									"key": "actions[crop][y]",
+									"value": "40"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crop Rotate Optimize",
+					"id": "ff1fb456-2ec8-02cb-a2fd-021733716010",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[optimize][quality]=100&actions[crop][width]=100&actions[crop][height]=1000&actions[crop][x]=0&actions[crop][y]=0&actions[rotate][degrees]=90&actions[rotate][color]=000000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[optimize][quality]",
+									"value": "100"
+								},
+								{
+									"key": "actions[crop][width]",
+									"value": "100"
+								},
+								{
+									"key": "actions[crop][height]",
+									"value": "1000"
+								},
+								{
+									"key": "actions[crop][x]",
+									"value": "0"
+								},
+								{
+									"key": "actions[crop][y]",
+									"value": "0"
+								},
+								{
+									"key": "actions[rotate][degrees]",
+									"value": "90"
+								},
+								{
+									"key": "actions[rotate][color]",
+									"value": "000000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sepia Optimize Blur",
+					"id": "1323dc2a-48cb-ca3e-8642-27cf75c09be6",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[sepia]=true&actions[optimize][quality]=50&actions[blur][radius]=0x8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[sepia]",
+									"value": "true"
+								},
+								{
+									"key": "actions[optimize][quality]",
+									"value": "50"
+								},
+								{
+									"key": "actions[blur][radius]",
+									"value": "0x8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resize Blur",
+					"id": "a10c10b5-51d4-f2af-c5c7-20fc29e2d3e5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[optimize][quality]=100&actions[resize][width]=200&actions[resize][height]=50&actions[blur][radius]=0x4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[optimize][quality]",
+									"value": "100"
+								},
+								{
+									"key": "actions[resize][width]",
+									"value": "200"
+								},
+								{
+									"key": "actions[resize][height]",
+									"value": "50"
+								},
+								{
+									"key": "actions[blur][radius]",
+									"value": "0x4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sepia",
+					"id": "f4415036-392b-b002-fdde-0ef9a221e51c",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[sepia]=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[sepia]",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Blur",
+					"id": "790e7b95-feb8-8c13-542a-a3e0adcec2d5",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[blur][radius]=0x8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[blur][radius]",
+									"value": "0x8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Black and White",
+					"id": "440916cf-e124-f6d4-f68d-b0cd81b36a32",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[blackandwhite]=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[blackandwhite]",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mosaic",
+					"id": "9743aafa-7c7b-fd78-7340-ea5dcdcccb7b",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[mosaic]=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[mosaic]",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Noise",
+					"id": "e805f56c-0f7a-e3f5-c814-a8043c36a8bc",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[noise][radius]=0x3&actions[noise][type]=gaussian",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[noise][radius]",
+									"value": "0x3"
+								},
+								{
+									"key": "actions[noise][type]",
+									"value": "gaussian"
+								}
+							]
+						},
+						"description": "radius|type\nTo add noise pass one of the following:\nuniform\ngaussian\nmultiplicative\nimpulse\nlaplacian\npoisson\nOtherwise the argument will be interpreted as a radius which adjusts the weight of the effect."
+					},
+					"response": []
+				},
+				{
+					"name": "Flop",
+					"id": "aa2962fc-c376-dd23-272d-0a96139fcd21",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[flop]=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[flop]",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Flip",
+					"id": "38024ca0-923c-b96a-9374-4ff5f561acfc",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[flip]=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[flip]",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Colorize",
+					"id": "09892cf3-86d2-af21-e332-93099a10be2f",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[colorize][r]=74&actions[colorize][g]=3&actions[colorize][b]=4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[colorize][r]",
+									"value": "74"
+								},
+								{
+									"key": "actions[colorize][g]",
+									"value": "3"
+								},
+								{
+									"key": "actions[colorize][b]",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Resize",
+					"id": "ccebdcae-c8f7-ec79-8b77-8a91fcb4175f",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[resize][width]=400&actions[resize][height]=200",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[resize][width]",
+									"value": "400"
+								},
+								{
+									"key": "actions[resize][height]",
+									"value": "200"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rotate",
+					"id": "dfa71194-98c0-b9ea-6a6c-dd62200a4a98",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[rotate][degrees]=50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[rotate][degrees]",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Zesty Resize",
+					"id": "35234dbc-481f-eab4-2532-86c4e878c95a",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[zesty_resize][width]=200",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[zesty_resize][width]",
+									"value": "200"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Zesty Crop",
+					"id": "c249338c-0ffc-22b1-81e4-158a3b6f499e",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test&actions[crop][width]=200&actions[crop][height]=200",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test"
+								},
+								{
+									"key": "actions[crop][width]",
+									"value": "200"
+								},
+								{
+									"key": "actions[crop][height]",
+									"value": "200"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Minify",
+					"id": "ef0a04bc-f10b-c7a6-d897-76478fe665ba",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[minify][factor]=.1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[minify][factor]",
+									"value": ".1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crop",
+					"id": "33174f1a-f63c-00c4-063a-2b8d4e159c43",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[crop][width]=200&actions[crop][height]=200",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[crop][width]",
+									"value": "200"
+								},
+								{
+									"key": "actions[crop][height]",
+									"value": "200"
+								}
+							]
+						},
+						"description": "options x y params\n\n[crop][x]\n[crop][y]"
+					},
+					"response": []
+				},
+				{
+					"name": "Optimize",
+					"id": "fb69cd25-905e-a3f1-d4f4-148f9c0fd258",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8040/modify?zuid={{file_zuid}}&file_name=my_test_file_name&actions[optimize][quality]=50",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8040",
+							"path": [
+								"modify"
+							],
+							"query": [
+								{
+									"key": "zuid",
+									"value": "{{file_zuid}}"
+								},
+								{
+									"key": "file_name",
+									"value": "my_test_file_name"
+								},
+								{
+									"key": "actions[optimize][quality]",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "b5a5de73-e174-ec19-9893-2e3dba24b769"
+		},
+		{
+			"name": "Resolver",
+			"item": [
+				{
+					"name": "resolve file",
+					"id": "813165b7-fbf9-47e5-8e54-724915027a81",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{APP_SID}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"items\": [\n\t\t\t\t{\t\n\t\t\t\t\t\"id\": \"{{file_zuid}}\",\n        \t\t\t\"actions\"  => [\n\t\t\t            [\n\t\t\t                \"type\" : \"getimage\",\n\t\t\t                \"options\": {\n\t\t\t                \t\"width\" : 300,\n\t\t\t                \t\"height\" : 300,\n\t\t\t                \t\"type\" : \"crop\"\n\t\t\t                }\n\t\t\t            ]\n\t\t\t        ],\n        \t\t\t\"property\" => \"url\"\n\t\t\t\t}\n\t\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{protocol}}://{{media_resolver_host}}/resolve"
+					},
+					"response": []
+				},
+				{
+					"name": "invalidate",
+					"id": "ee287b91-7baa-4d26-923d-db1398d7d57d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{APP_SID}}"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[[\"{{file_zuid}}\",\"url\",\"*\"]]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{protocol}}://{{media_resolver_host}}/invalidatePublic"
+					},
+					"response": []
+				},
+				{
+					"name": "resolve file Copy",
+					"id": "49e32944-7d24-44a5-962c-b65bb600dcb9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "{{APP_SID}}"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{media_resolver_host}}/resolve/{{file_zuid}}/getimage?w=100",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{media_resolver_host}}"
+							],
+							"path": [
+								"resolve",
+								"{{file_zuid}}",
+								"getimage"
+							],
+							"query": [
+								{
+									"key": "w",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "ff083543-d708-cb05-90eb-e0a0f5fefa47"
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{token}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3d2e9944-3c5e-4a1f-9a54-278335f31cbf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c61a4903-e58b-4f14-b9e3-302d2704d1bf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
