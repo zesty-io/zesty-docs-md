@@ -31,7 +31,7 @@ apm install zestyio-atom
 
 The Atom Editor can also be installed through the Atom package manager. When you have [ATOM](https://atom.io) installed, open settings, click on install, search Zesty. Install **zestyio-atom** and **zestyio-parsley-atom**.
 
-![Snap shot of searching for Zesty Plugin in the ATOM Editor](<../../.gitbook/assets/image (20).png>)
+![Snap shot of searching for Zesty Plugin in the ATOM Editor](<../../.gitbook/assets/image (106).png>)
 
 ### 2. Get Your Instance Details
 
@@ -39,7 +39,7 @@ The Atom Editor can also be installed through the Atom package manager. When you
 
 Login to your Zesty.io account and you'll arrive at the all-instances view. Find the instance that you want to work on and click the ⚙️(cog) icon on that instance's card and you'll see the Instance Settings Drawer slide out from the right side of the screen.  From here you can find your Instance ZUID:
 
-![Instance details.](<../../.gitbook/assets/instance-details (1).png>)
+![Instance details.](../../.gitbook/assets/instance-details.png)
 
 Make note of your instance's ZUID as you'll need it when you're connecting to Atom.
 

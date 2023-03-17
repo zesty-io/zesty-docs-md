@@ -22,7 +22,7 @@ Once we open up the manager, we'll need to configure the content that we'll load
 
 Go to Config and create a Set of Content Entries. Call it `Coupons`
 
-![Creating the Set](<../../../../.gitbook/assets/setcreation (1) (1).png>)
+![Creating the Set](<../../../../.gitbook/assets/setcreation (1).png>)
 
 Next, we'll add a few fields to load in, a Text Field called `name`, and a TextArea Field called `description`.
 
@@ -64,7 +64,7 @@ To do this, we'll need to create a `Podfile`
 
 Go to File -> New -> File...
 
-![Creating a new file](<../../../../.gitbook/assets/newfile (1) (1) (1).png>)
+![Creating a new file](<../../../../.gitbook/assets/newfile (1) (1) (1) (1).png>)
 
 Choose Other -> Empty
 
@@ -72,7 +72,7 @@ Choose Other -> Empty
 
 Call it `Podfile`, and store it at the base of your project directory, alongside your `.xcodeproj` file
 
-![Where to put Podfile](<../../../../.gitbook/assets/podfilelocation (1).png>)
+![Where to put Podfile](../../../../.gitbook/assets/podfilelocation.png)
 
 Inside `Podfile`, paste in this code: (and replace iOS Tutorial App with the name of your Xcode Project Name
 
@@ -145,7 +145,7 @@ Now that everything has been setup, we can pull our data from Zesty!
 
 We'll start by creating the UI For our Project. Open up `Main.storyboard` from the side menu, and drag a `UITableView` object from the objects inspector into the view controller. (For Xcode 10, the inspector is located on the top)
 
-![Adding the table view](<../../../../.gitbook/assets/addingtableview (1).png>)
+![Adding the table view](../../../../.gitbook/assets/addingtableview.png)
 
 After adding it, click on the table view, then the Constraints Inspector on the bottom, and set the following Constraints (0 on all edges)
 
@@ -219,9 +219,9 @@ A few things to note:
 * In our `getData()` function, we need to specify the array zuid of the dataset we created, `Coupons`.
   * We can figure this out by going back to our `Content` or `Config` page, and looking at the url when we've selected coupons
 
-![Where the zuid is](<../../../../.gitbook/assets/zuidloc (1).png>)
+![Where the zuid is](../../../../.gitbook/assets/zuidloc.png)
 
-![Other location of the zuid](<../../../../.gitbook/assets/otherloc (1) (1).png>)
+![Other location of the zuid](<../../../../.gitbook/assets/otherloc (1).png>)
 
 After filling in those details, run your project on the iOS Simulator (⌘R), and see the magic happen!
 

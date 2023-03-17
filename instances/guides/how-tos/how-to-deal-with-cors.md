@@ -53,7 +53,7 @@ _Please be aware that not all browser inspectors are created equal and can have 
 
 Most browsers' inspectors can be accessed by right-clicking on a web page to show the context menu and selecting the "inspect" option.&#x20;
 
-![Opening the inspector in Chrome](../../../.gitbook/assets/open-inspector.png)
+![Opening the inspector in Chrome](<../../../.gitbook/assets/open-inspector (1).png>)
 
 This should open the inspector which will contain multiple tabs. The two we are interested in will be the "Console" and "Network" tab.
 

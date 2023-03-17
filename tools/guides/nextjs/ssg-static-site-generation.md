@@ -6,5 +6,5 @@ description: How to build Next.js with static site generation with Zesty.io
 
 ### Data & Delivery Pipeline for Next.js with Zesty.io
 
-![Static Site Generation Pipeline example.](<../../../.gitbook/assets/image (27).png>)
+![Static Site Generation Pipeline example.](<../../../.gitbook/assets/image (52).png>)
 

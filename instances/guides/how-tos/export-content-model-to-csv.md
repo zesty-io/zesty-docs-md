@@ -28,7 +28,7 @@ a comma seperated value string
 
 ### Write your Own CSV Export
 
-If you are looking for a more custom export, here is the the node code to export a [Content Model ](../../manager-ui/schema/content-models.md)to a CSV using the [Node SDK](../../../tools/guides/node-sdk/).
+If you are looking for a more custom export, here is the the node code to export a [Content Model ](../../ui/schema/content-models.md)to a CSV using the [Node SDK](../../../tools/guides/node-sdk/).
 
 ```javascript
 const SDK = require("@zesty-io/sdk");
