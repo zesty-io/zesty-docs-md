@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "b15a0abd-330b-17dc-bf88-68a30c593961",
 		"name": "Accounts API",
+		"description": "API used to control management of users, roles, instances, and teams.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
