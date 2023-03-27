@@ -5423,6 +5423,597 @@
 				}
 			],
 			"id": "06a5a436-9078-434f-9a8b-ca8ad6d04bc9"
+		},
+		{
+			"name": "/oktaorg",
+			"item": [
+				{
+					"name": "Create Okta Org",
+					"id": "357198d6-6dd3-4002-ba02-f04e94985fcb",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"oktaorg_zuid\": {{ecosystem_zuid}},\n    \"client_id\": \"client_id\",\n    \"client_secret\": \"client_secret\",\n    \"client_domain\": \"client_domain\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg",
+						"description": "Creates a new Okta Org record based on the ecosystem the user have admin/owner permissions.\n\n| **Key** | **Description** |\n| --- | --- |\n| oktaorg_zuid | \\[string\\] Required. The ecosystem ZUID the user have admin/owner permissions. |\n| client_id | \\[string\\] Required. |\n| client_secret | \\[string\\] Required. |\n| client_domain | \\[string\\] Required. URL encoded domain. E.g. \"[https://clientdomain.com\"](https://clientdomain.com\") |"
+					},
+					"response": [
+						{
+							"id": "cc5c7fac-1721-402c-b522-65f945e7c733",
+							"name": "Create Okta Org",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"oktaorg_zuid\": {{ecosystem_zuid}},\n    \"client_id\": \"jloJojd234Ojjoi12Uo21\",\n    \"client_secret\": \"HL24l9sad23iKJokofds\",\n    \"client_domain\": \"http://validdomain.test\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Cookie, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Auth"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "PUT, POST, GET, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "482"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Mar 2023 23:56:40 GMT"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": ""
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer-when-downgrade"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "sameorigin"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": ""
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1;mode=block"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"_meta\":{\"timestamp\":\"2023-03-22T07:56:40.746837035+08:00\",\"totalResults\":1,\"start\":0,\"offset\":0,\"limit\":1},\"data\":{\"id\":0,\"oktaorg_zuid\":\"35-a6b8e2f1af-1234\",\"client_id\":\"90UHxwC5kOCiCDVi5iLj17hJLjsxkDRIyDDDAgAM8JVvEkS7qT1DHPyUBMHqXeYjifYZVE0=\",\"client_secret\":\"90UHxwC5kOCiCDVi5iLj17hJLjsxkDRIyDDDAgAM8JVNMhnFqm5UT6uSeMLLeOB5TNB2aw==\",\"client_domain\":\"http://validdomain.test\",\"createdAt\":\"2023-03-22T07:56:40.357948445+08:00\",\"updatedAt\":\"2023-03-22T07:56:40.3579551+08:00\"}}\n"
+						}
+					]
+				},
+				{
+					"name": "Get Okta Org",
+					"id": "bfa63b5c-ae90-4f12-939f-fbe7782a7059",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg?clientDomain={{client_domain}}",
+							"protocol": "{{protocol}}",
+							"host": [
+								"{{accounts_api_url}}"
+							],
+							"path": [
+								"{{accounts_api_version}}",
+								"oktaorg"
+							],
+							"query": [
+								{
+									"key": "clientDomain",
+									"value": "{{client_domain}}"
+								}
+							]
+						},
+						"description": "Retrieves an Okta Org record based on the client_domain.\n\nThis API supports user session token (`bearer token`) as long as the user is a Zesty admin/owner as well as support for Service-to-Service token using `X-Auth` custom header request."
+					},
+					"response": [
+						{
+							"id": "398008a3-2c2b-4dac-811c-daf0132bc698",
+							"name": "Get Okta Org",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg?clientDomain=https://completetest.domain",
+									"protocol": "{{protocol}}",
+									"host": [
+										"{{accounts_api_url}}"
+									],
+									"path": [
+										"{{accounts_api_version}}",
+										"oktaorg"
+									],
+									"query": [
+										{
+											"key": "clientDomain",
+											"value": "https://completetest.domain"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Cookie, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Auth"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "PUT, POST, GET, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "344"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Mar 2023 22:56:15 GMT"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": ""
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer-when-downgrade"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "sameorigin"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": ""
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1;mode=block"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\n    \"_meta\": {\n        \"timestamp\": \"2023-03-22T06:56:15.745993228+08:00\",\n        \"totalResults\": 1,\n        \"start\": 0,\n        \"offset\": 0,\n        \"limit\": 1\n    },\n    \"data\": {\n        \"id\": 13,\n        \"oktaorg_zuid\": \"35-a6b8e2f1af-1234\",\n        \"client_id\": \"newtest\",\n        \"client_secret\": \"clinetsecert\",\n        \"client_domain\": \"https://completetest.domain\",\n        \"createdAt\": \"2023-03-21T23:15:49+08:00\",\n        \"updatedAt\": \"2023-03-21T23:15:49+08:00\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Okta Org",
+					"id": "09cc39ac-e248-4cb2-b7a9-619ec2111931",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oktaorg_zuid\": {{ecosystem_zuid}},\r\n    \"client_id\": \"client_id\",\r\n    \"client_secret\": \"client_secret\",\r\n    \"client_domain\": \"client_domain\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}",
+						"description": "Updates an Okta Org record based on its ZUID.\n\n| **Key** | **Description** |\n| --- | --- |\n| oktaorg_zuid | \\[string\\] Optional. The new ecosystem's ZUID the user have admin/owner permissions. |\n| client_id | \\[string\\] Optional. The new client_id. **Note** that client_secret will be required. |\n| client_secret | \\[string\\] Optional. The new client_secret. **Note** the client_id will be required. |\n| client_domain | \\[string\\] Optional. New client_domain. E.g. \"[https://clientdomain.com\"](https://clientdomain.com) |"
+					},
+					"response": [
+						{
+							"id": "490b5fe4-b2bc-4a01-8e80-142146cb202c",
+							"name": "Update Okta Org ZUID",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"oktaorg_zuid\": {{ecosystem_zuid}}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Cookie, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Auth"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "PUT, POST, GET, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "470"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Mar 2023 00:15:42 GMT"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": ""
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer-when-downgrade"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "sameorigin"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": ""
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1;mode=block"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"_meta\":{\"timestamp\":\"2023-03-22T08:15:42.622210601+08:00\",\"totalResults\":1,\"start\":0,\"offset\":0,\"limit\":1},\"data\":{\"id\":14,\"oktaorg_zuid\":\"35-a6b8e2f1af-5678\",\"client_id\":\"90UHxwC5kOCiCDVi5iLj17hJLjsxkDRIyDDDAgAM8JVvEkS7qT1DHPyUBMHqXeYjifYZVE0=\",\"client_secret\":\"90UHxwC5kOCiCDVi5iLj17hJLjsxkDRIyDDDAgAM8JVNMhnFqm5UT6uSeMLLeOB5TNB2aw==\",\"client_domain\":\"http://validdomain.test\",\"createdAt\":\"0001-01-01T00:00:00Z\",\"updatedAt\":\"2023-03-22T08:15:42.234764109+08:00\"}}\n"
+						},
+						{
+							"id": "738014a0-dee0-45b8-934b-b238805ee59b",
+							"name": "Update Okta Org ID and Secret",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"client_id\": \"newclientid\",\r\n    \"client_secret\": \"newclientsecret\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Cookie, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Auth"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "PUT, POST, GET, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "470"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Mar 2023 00:15:42 GMT"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": ""
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer-when-downgrade"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "sameorigin"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": ""
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1;mode=block"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"_meta\":{\"timestamp\":\"2023-03-22T08:15:42.622210601+08:00\",\"totalResults\":1,\"start\":0,\"offset\":0,\"limit\":1},\"data\":{\"id\":14,\"oktaorg_zuid\":\"35-a6b8e2f1af-1234\",\"client_id\":\"90UHxwC5kOCiCDVi5iLj17hJLjsxkDRIyDDDAgAM8JVvEkS7qT1DHPyUBMHqXeYjifYZVE0=\",\"client_secret\":\"90UHxwC5kOCiCDVi5iLj17hJLjsxkDRIyDDDAgAM8JVNMhnFqm5UT6uSeMLLeOB5TNB2aw==\",\"client_domain\":\"http://validdomain.test\",\"createdAt\":\"0001-01-01T00:00:00Z\",\"updatedAt\":\"2023-03-22T08:15:42.234764109+08:00\"}}\n"
+						},
+						{
+							"id": "fb2bc0a8-b798-4962-bcae-c12e241193d2",
+							"name": "Update Okta Org Domain",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"client_domain\": \"https://newdomain.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Cookie, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Auth"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "PUT, POST, GET, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "448"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Mar 2023 00:22:37 GMT"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": ""
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer-when-downgrade"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "sameorigin"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": ""
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1;mode=block"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"_meta\":{\"timestamp\":\"2023-03-22T08:22:37.984638435+08:00\",\"totalResults\":1,\"start\":0,\"offset\":0,\"limit\":1},\"data\":{\"id\":14,\"oktaorg_zuid\":\"35-a6b8e2f1af-1234\",\"client_id\":\"90UHxwC5kOCiCDVi5iLj17hJLjsxkDRIyDDDAgAM8JVrG1ySqj5CQLvJLw==\",\"client_secret\":\"90UHxwC5kOCiCDVi5iLj17hJLjsxkDRIyDDDAgAM8JVrG1ySqj5CQLvTLsjyV/s=\",\"client_domain\":\"https://newdomain.com\",\"createdAt\":\"0001-01-01T00:00:00Z\",\"updatedAt\":\"2023-03-22T08:22:37.594640478+08:00\"}}\n"
+						}
+					]
+				},
+				{
+					"name": "Delete Okta Org",
+					"id": "809b8de2-a193-4515-92d1-8e324e2ef663",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}",
+						"description": "Deletes an Okta Org record."
+					},
+					"response": [
+						{
+							"id": "bc400c07-85f3-4ca3-a2df-962b241eb48f",
+							"name": "Delete Okta Org",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Cookie, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-Auth"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "PUT, POST, GET, PATCH, DELETE, OPTIONS"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": ""
+								},
+								{
+									"key": "Content-Length",
+									"value": "443"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": ""
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Mar 2023 00:23:20 GMT"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": ""
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer-when-downgrade"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "sameorigin"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": ""
+								},
+								{
+									"key": "X-Xss-Protection",
+									"value": "1;mode=block"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"_meta\":{\"timestamp\":\"2023-03-22T08:23:20.666214201+08:00\",\"totalResults\":1,\"start\":0,\"offset\":0,\"limit\":1},\"data\":{\"id\":14,\"oktaorg_zuid\":\"35-a6b8e2f1af-1234\",\"client_id\":\"90UHxwC5kOCiCDVi5iLj17hJLjsxkDRIyDDDAgAM8JVrG1ySqj5CQLvJLw==\",\"client_secret\":\"90UHxwC5kOCiCDVi5iLj17hJLjsxkDRIyDDDAgAM8JVrG1ySqj5CQLvTLsjyV/s=\",\"client_domain\":\"https://newdomain.com\",\"createdAt\":\"2023-03-22T07:56:40+08:00\",\"updatedAt\":\"2023-03-22T08:22:37+08:00\"}}\n"
+						}
+					]
+				}
+			],
+			"id": "b789e8f6-5b56-4dd8-945a-b9025aad2334",
+			"description": "Okta Org endpoint is used to register, get, update and delete secrets of a tenant in Zesty. This will be used for the Okta SSO flow.\n\nOnly Zesty users with role **admin** or **owner** are authorized to use these APIs.\n\n**Terminologies**:\n\n| **name** | **description** |\n| --- | --- |\n| client_id | public identifier for the client that is used to generate authorization code for the user |\n| client_secret | private identifier for the client that is used to generate the access token, refresh token and id_token which contains the user information |\n| client_domain | the Okta tenant's domain URL, also called issuer |"
 		}
 	],
 	"auth": {
