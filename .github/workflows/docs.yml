@@ -1,0 +1,41 @@
+name: Generate Data for DOCS
+
+on:
+  push:
+    branches: ["master", "transformer"]
+
+permissions: write-all
+
+jobs:
+  generate-data-for-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.x"
+
+      - name: Install dependencies
+        run: npm install axios algoliasearch
+
+      - name: Run Node function and create file
+        env:
+          GITBOOK_API_KEY: ${{ secrets.GITBOOK_API_KEY }}
+          ALGOLIA_APPID: ${{ secrets.ALGOLIA_APPID }}
+          ALGOLIA_APIKEY: ${{ secrets.ALGOLIA_APIKEY }}
+          ALGOLIA_ZESTY_ORG_INDEX: ${{ secrets.ALGOLIA_ZESTY_ORG_INDEX }}
+
+        run: node script/transformer.js
+
+      - name: Commit changes
+        run: |
+          git switch -c version-branch
+          git config --global user.email "test@zesty.io"
+          git config --global user.name "Zesty Test"
+          git add .
+          git commit --allow-empty -m ":rocket: chore: bump Docs Data"
+          git push origin version-branch:docs-data
