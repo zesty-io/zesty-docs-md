@@ -52,8 +52,6 @@ const addToAlgolia = async (req) => {
   const client = algoliasearch(APPID, APIKEY);
   const index = client.initIndex(INDEX);
 
-  console.log("test", APPID, APIKEY, INDEX, GITBOOK_API_KEY);
-
   const gitBookPages = await getGitBookPages();
 
   const objects = await flattenPages(gitBookPages.data.pages);
@@ -145,7 +143,7 @@ const flattenPages = async (pages) => {
  */
 const generateNavigationTree = (flattenedPages) => {
   return flattenedPages.reduce((acc, item) => {
-    const { url, name, objectId, content } = item;
+    const { url, name, objectId, content, category, service } = item;
     const urlArr = url.split("/").filter((item) => item !== "");
     const urlArrLength = urlArr.length;
     let tempAcc = acc;
@@ -157,6 +155,8 @@ const generateNavigationTree = (flattenedPages) => {
           objectId,
           item: [],
           content,
+          category,
+          service,
         });
       } else {
         const foundItem = tempAcc.find((item) => item.name === urlArr[index]);
@@ -168,6 +168,8 @@ const generateNavigationTree = (flattenedPages) => {
             url: `/${urlArr.slice(0, index + 1).join("/")}`,
             item: [],
             content,
+            category,
+            service,
           });
           tempAcc = tempAcc[tempAcc.length - 1].item;
         }

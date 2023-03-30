@@ -2,7 +2,7 @@ name: Generate Data for DOCS
 
 on:
   push:
-    branches: ["master", "transformer"]
+    branches: ["main", "transformer"]
 
 permissions: write-all
 
@@ -33,9 +33,9 @@ jobs:
 
       - name: Commit changes
         run: |
-          git switch -c version-branch
+          git checkout -b version-branch
           git config --global user.email "test@zesty.io"
           git config --global user.name "Zesty Test"
           git add .
           git commit --allow-empty -m ":rocket: chore: bump Docs Data"
-          git push origin version-branch:docs-data
+          git push -u -f origin version-branch
