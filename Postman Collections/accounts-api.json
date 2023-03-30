@@ -5425,10 +5425,10 @@
 			"id": "06a5a436-9078-434f-9a8b-ca8ad6d04bc9"
 		},
 		{
-			"name": "/oktaorg",
+			"name": "/vendors/okta",
 			"item": [
 				{
-					"name": "Create Okta Org",
+					"name": "Create Okta",
 					"id": "357198d6-6dd3-4002-ba02-f04e94985fcb",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -5438,33 +5438,33 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"oktaorg_zuid\": {{ecosystem_zuid}},\n    \"client_id\": \"client_id\",\n    \"client_secret\": \"client_secret\",\n    \"client_domain\": \"client_domain\"\n}\n",
+							"raw": "{\n    \"ecosystem_zuid\": {{ecosystem_zuid}},\n    \"client_id\": \"client_id\",\n    \"client_secret\": \"client_secret\",\n    \"client_domain\": \"client_domain\"\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg",
+						"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/vendors/okta",
 						"description": "Creates a new Okta Org record based on the ecosystem the user have admin/owner permissions.\n\n| **Key** | **Description** |\n| --- | --- |\n| oktaorg_zuid | \\[string\\] Required. The ecosystem ZUID the user have admin/owner permissions. |\n| client_id | \\[string\\] Required. |\n| client_secret | \\[string\\] Required. |\n| client_domain | \\[string\\] Required. URL encoded domain. E.g. \"[https://clientdomain.com\"](https://clientdomain.com\") |"
 					},
 					"response": [
 						{
 							"id": "cc5c7fac-1721-402c-b522-65f945e7c733",
-							"name": "Create Okta Org",
+							"name": "Create Okta",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"oktaorg_zuid\": {{ecosystem_zuid}},\n    \"client_id\": \"jloJojd234Ojjoi12Uo21\",\n    \"client_secret\": \"HL24l9sad23iKJokofds\",\n    \"client_domain\": \"http://validdomain.test\"\n}\n",
+									"raw": "{\n    \"ecosystem_zuid\": {{ecosystem_zuid}},\n    \"client_id\": \"jloJojd234Ojjoi12Uo21\",\n    \"client_secret\": \"HL24l9sad23iKJokofds\",\n    \"client_domain\": \"http://validdomain.test\"\n}\n",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg"
+								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/vendors/okta"
 							},
 							"status": "Created",
 							"code": 201,
@@ -5534,7 +5534,7 @@
 					]
 				},
 				{
-					"name": "Get Okta Org",
+					"name": "Get Okta",
 					"id": "bfa63b5c-ae90-4f12-939f-fbe7782a7059",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -5543,14 +5543,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg?clientDomain={{client_domain}}",
+							"raw": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/vendors/okta?clientDomain={{client_domain}}",
 							"protocol": "{{protocol}}",
 							"host": [
 								"{{accounts_api_url}}"
 							],
 							"path": [
 								"{{accounts_api_version}}",
-								"oktaorg"
+								"vendors",
+								"okta"
 							],
 							"query": [
 								{
@@ -5564,19 +5565,20 @@
 					"response": [
 						{
 							"id": "398008a3-2c2b-4dac-811c-daf0132bc698",
-							"name": "Get Okta Org",
+							"name": "Get Okta",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg?clientDomain=https://completetest.domain",
+									"raw": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/vendors/okta?clientDomain=https://completetest.domain",
 									"protocol": "{{protocol}}",
 									"host": [
 										"{{accounts_api_url}}"
 									],
 									"path": [
 										"{{accounts_api_version}}",
-										"oktaorg"
+										"vendors",
+										"okta"
 									],
 									"query": [
 										{
@@ -5654,7 +5656,7 @@
 					]
 				},
 				{
-					"name": "Update Okta Org",
+					"name": "Update Okta",
 					"id": "09cc39ac-e248-4cb2-b7a9-619ec2111931",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -5664,33 +5666,33 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"oktaorg_zuid\": {{ecosystem_zuid}},\r\n    \"client_id\": \"client_id\",\r\n    \"client_secret\": \"client_secret\",\r\n    \"client_domain\": \"client_domain\"\r\n}",
+							"raw": "{\r\n    \"ecosystem_zuid\": {{ecosystem_zuid}},\r\n    \"client_id\": \"client_id\",\r\n    \"client_secret\": \"client_secret\",\r\n    \"client_domain\": \"client_domain\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}",
+						"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/vendors/okta/{{ecosystem_zuid}}",
 						"description": "Updates an Okta Org record based on its ZUID.\n\n| **Key** | **Description** |\n| --- | --- |\n| oktaorg_zuid | \\[string\\] Optional. The new ecosystem's ZUID the user have admin/owner permissions. |\n| client_id | \\[string\\] Optional. The new client_id. **Note** that client_secret will be required. |\n| client_secret | \\[string\\] Optional. The new client_secret. **Note** the client_id will be required. |\n| client_domain | \\[string\\] Optional. New client_domain. E.g. \"[https://clientdomain.com\"](https://clientdomain.com) |"
 					},
 					"response": [
 						{
 							"id": "490b5fe4-b2bc-4a01-8e80-142146cb202c",
-							"name": "Update Okta Org ZUID",
+							"name": "Update Okta Ecosystem ZUID",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"oktaorg_zuid\": {{ecosystem_zuid}}\r\n}",
+									"raw": "{\r\n    \"ecosystem_zuid\": {{ecosystem_zuid}}\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
 										}
 									}
 								},
-								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}"
+								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/vendors/okta/{{ecosystem_zuid}}"
 							},
 							"status": "OK",
 							"code": 200,
@@ -5759,7 +5761,7 @@
 						},
 						{
 							"id": "738014a0-dee0-45b8-934b-b238805ee59b",
-							"name": "Update Okta Org ID and Secret",
+							"name": "Update Okta Client ID and Client Secret",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
@@ -5772,7 +5774,7 @@
 										}
 									}
 								},
-								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}"
+								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/vendors/okta/{{ecosystem_zuid}}"
 							},
 							"status": "OK",
 							"code": 200,
@@ -5841,7 +5843,7 @@
 						},
 						{
 							"id": "fb2bc0a8-b798-4962-bcae-c12e241193d2",
-							"name": "Update Okta Org Domain",
+							"name": "Update Okta Client Domain",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
@@ -5854,7 +5856,7 @@
 										}
 									}
 								},
-								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}"
+								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/vendors/okta/{{ecosystem_zuid}}"
 							},
 							"status": "OK",
 							"code": 200,
@@ -5924,7 +5926,7 @@
 					]
 				},
 				{
-					"name": "Delete Okta Org",
+					"name": "Delete Okta",
 					"id": "809b8de2-a193-4515-92d1-8e324e2ef663",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -5932,17 +5934,17 @@
 					"request": {
 						"method": "DELETE",
 						"header": [],
-						"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}",
+						"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/vendors/okta/{{ecosystem_zuid}}",
 						"description": "Deletes an Okta Org record."
 					},
 					"response": [
 						{
 							"id": "bc400c07-85f3-4ca3-a2df-962b241eb48f",
-							"name": "Delete Okta Org",
+							"name": "Delete Okta",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
-								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/oktaorg/{{ecosystem_zuid}}"
+								"url": "{{protocol}}://{{accounts_api_url}}/{{accounts_api_version}}/vendors/okta/{{ecosystem_zuid}}"
 							},
 							"status": "OK",
 							"code": 200,
@@ -6013,7 +6015,7 @@
 				}
 			],
 			"id": "b789e8f6-5b56-4dd8-945a-b9025aad2334",
-			"description": "Okta Org endpoint is used to register, get, update and delete secrets of a tenant in Zesty. This will be used for the Okta SSO flow.\n\nOnly Zesty users with role **admin** or **owner** are authorized to use these APIs.\n\n**Terminologies**:\n\n| **name** | **description** |\n| --- | --- |\n| client_id | public identifier for the client that is used to generate authorization code for the user |\n| client_secret | private identifier for the client that is used to generate the access token, refresh token and id_token which contains the user information |\n| client_domain | the Okta tenant's domain URL, also called issuer |"
+			"description": "/vendors/okta endpoints are used to register, get, update and delete secrets of a tenant in Zesty. This will be used for the Okta SSO flow.\n\nOnly Zesty users with role **admin** or **owner** are authorized to use these APIs.\n\n**Fields**:\n\n| **name** | **description** |\n| --- | --- |\n| client_domain | the Okta tenant's domain URL, also called issuer |\n| ecosystem_zuid | the ecosystem where the Okta organization will be mapped |\n| client_id | public identifier for the client that is used to generate authorization code for the user |\n| client_secret | private identifier for the client that is used to generate the access token, refresh token and id_token which contains the user information |"
 		}
 	],
 	"auth": {
