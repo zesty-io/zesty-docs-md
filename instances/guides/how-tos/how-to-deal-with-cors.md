@@ -16,7 +16,7 @@ If you are just starting to learn about CORS one of the best places to start is 
 
 ### What is CORS?
 
-CORS is an acronym for Cross-Origin Resource Sharing. CORS is when one domain makes an XMLHttpRequest (XHR) to another domain. This commonly occurs when using JavaScript to make an HTTP request to an API. ****&#x20;
+CORS is an acronym for Cross-Origin Resource Sharing. CORS is when one domain makes an XMLHttpRequest (XHR) to another domain. This commonly occurs when using JavaScript to make an HTTP request to an API.&#x20;
 
 ![CORS diagram](../../../.gitbook/assets/cors.png)
 

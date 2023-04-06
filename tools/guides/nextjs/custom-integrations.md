@@ -10,9 +10,9 @@ If you plan to integrate Zesty.io into your project, this document will break do
 
 ### Files Needed
 
-1. ``[`[...slug].js`](https://github.com/zesty-io/nextjs-starter/blob/main/pages/\[...slug].js) in the root of your `pages/` directory.
-2. ``[`fetchPage.js`](https://github.com/zesty-io/nextjs-starter/blob/main/lib/zesty/fetchPage.js) a function that resolves dynamic content into `[...slug].js`
-3. ``[`ZestyView`](https://github.com/zesty-io/nextjs-starter/blob/main/components/zesty/ZestyView.js) a dynamic component that resolves `views/zesty/` content model components
+1. [`[...slug].js`](https://github.com/zesty-io/nextjs-starter/blob/main/pages/\[...slug].js) in the root of your `pages/` directory.
+2. [`fetchPage.js`](https://github.com/zesty-io/nextjs-starter/blob/main/lib/zesty/fetchPage.js) a function that resolves dynamic content into `[...slug].js`
+3. [`ZestyView`](https://github.com/zesty-io/nextjs-starter/blob/main/components/zesty/ZestyView.js) a dynamic component that resolves `views/zesty/` content model components
 
 ### ENV Setup - next.config.js&#x20;
 
