@@ -26,7 +26,7 @@ const readAllMarkdownFilesRecursive = (directoryPath) => {
    }
 }
 
-const convertBrokenReferenceToLink = (filePath, fileName) => {
+const parser = (filePath, fileName) => {
    try {
       const fileContent = fs.readFileSync(filePath, "utf-8")
       const modifiedContent = fileContent
@@ -38,7 +38,7 @@ const convertBrokenReferenceToLink = (filePath, fileName) => {
          // this is for blockquotes
          .replaceAll(/\{% hint style="([\w\s]+)" %\}\s*(.*?)\s*\{% endhint %\}/gs, "> $2")
 
-      const newFilePath = `${fileName}.parse.md`
+      const newFilePath = `${filePath}.parse.md`
       fs.writeFileSync(newFilePath, modifiedContent, "utf-8")
       //   fs.writeFileSync(filePath, modifiedContent, "utf-8")
       console.log(`Modified file saved: ${filePath}`)
@@ -47,14 +47,18 @@ const convertBrokenReferenceToLink = (filePath, fileName) => {
    }
 }
 
-// Example usage
-const directoryPath = "./accounts/guides/accounts-api"
-const markdownFiles = readAllMarkdownFilesRecursive(directoryPath)
-if (markdownFiles) {
-   markdownFiles.forEach((file) => {
-      const fileName = path.basename(file.filePath)
-      console.log(`File Path: ${fileName}`)
-      console.log("-----------------------")
-      convertBrokenReferenceToLink(file.filePath, fileName)
-   })
+// Main
+const main = () => {
+   const directoryPath = "."
+   const markdownFiles = readAllMarkdownFilesRecursive(directoryPath)
+   if (markdownFiles) {
+      markdownFiles.forEach((file) => {
+         const fileName = path.basename(file.filePath)
+         console.log(`File Path: ${fileName}`)
+         console.log("-----------------------")
+         parser(file.filePath, fileName)
+      })
+   }
 }
+
+main()
