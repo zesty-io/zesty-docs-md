@@ -1,8 +1,8 @@
 ---
 description: >-
-  Zesty.org is the knowledge base for the Zesty.io CMS Platform. Learn the
-  intricacies of Zesty.io content technology and how to implement websites,
-  headless CMS apps, and marketing components.
+   Zesty.org is the knowledge base for the Zesty.io CMS Platform. Learn the
+   intricacies of Zesty.io content technology and how to implement websites,
+   headless CMS apps, and marketing components.
 ---
 
 # Introduction
@@ -15,7 +15,7 @@ Zesty.io is a cloud web content management system (WCMS) that is API driven with
 
 We architected Zesty.io to meet the needs of any content usage such as a [traditional website](webengine/guides/web-engine/) CMS, a [Headless CMS API](tools/guides/code-examples/) interface, a modern JamStack (JavaScript, API, Markup) implementation, or a combination of solutions. This means Zesty.io can power content beyond websites into new digital mediums like smart devices, video game data, and mobile applications. As a cloud service, we are constantly improving our technology, often daily, with updates that positively affect all users and experiences built on the platform.
 
-With the diversity of client needs as our focal point, we built an ecosystem that has an straightforward workflow.  Its construction revolved around the expectation that content creation shouldn't be limited to engineering departments. Continual assessments and updates are preformed to ensure a streamlined interface accessible for marketers, content creators and developers. In the Quick Start Guide below, we provide the layout and navigational guide to creating your first project.
+With the diversity of client needs as our focal point, we built an ecosystem that has an straightforward workflow. Its construction revolved around the expectation that content creation shouldn't be limited to engineering departments. Continual assessments and updates are preformed to ensure a streamlined interface accessible for marketers, content creators and developers. In the Quick Start Guide below, we provide the layout and navigational guide to creating your first project.
 
 {% content-ref url="introduction/guides/quick-start-guide/" %}
 [quick-start-guide](introduction/guides/quick-start-guide/)
@@ -59,6 +59,14 @@ Zesty.io was born in the cloud. The primary infrastructure lives on **Google Clo
 
 Start exploring documentation on the left or jump to a URL above to read experience documentation.
 
-* [Instances API](https://instances-api.zesty.org/)
-* [Accounts API](https://accounts-api.zesty.org/)
-* [Headless Zesty](tools/guides/code-examples/)
+-  [Instances API](https://instances-api.zesty.org/)
+-  [Accounts API](https://accounts-api.zesty.org/)
+-  [Headless Zesty](tools/guides/code-examples/)
+
+# How to use the `parser.js`
+
+In terminal run
+
+```jsx
+node parse.js
+```
