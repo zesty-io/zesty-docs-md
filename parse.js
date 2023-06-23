@@ -56,7 +56,7 @@ const parser = (filePath, fileName) => {
       )
       const final = res.replaceAll(swaggerRegex, "")
 
-      const newFilePath = `${filePath}.parse.md`
+      const newFilePath = `${filePath.replace(".md", "")}.parse.md`
       fs.writeFileSync(newFilePath, final, "utf-8")
       console.log(`Modified file saved: ${filePath}`)
    } catch (error) {
