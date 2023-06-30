@@ -68,14 +68,15 @@ const parser = (filePath, fileName) => {
 const main = () => {
    const directoryPath = "."
    const markdownFiles = readAllMarkdownFilesRecursive(directoryPath)
-   if (markdownFiles) {
-      markdownFiles.forEach((file) => {
-         const fileName = path.basename(file.filePath)
-         console.log(`File Path: ${fileName}`)
-         console.log("-----------------------")
-         parser(file.filePath, fileName)
-      })
-   }
+   console.log(markdownFiles, 444)
+   // if (markdownFiles) {
+   //    markdownFiles.forEach((file) => {
+   //       const fileName = path.basename(file.filePath)
+   //       console.log(`File Path: ${fileName}`)
+   //       console.log("-----------------------")
+   //       parser(file.filePath, fileName)
+   //    })
+   // }
 }
 
 main()
